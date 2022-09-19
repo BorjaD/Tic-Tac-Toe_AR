@@ -14,9 +14,9 @@ When two people play, one of them will go with the crosses, and the other one wi
 
 # Work to be done
 
-- Make the pieces display higher than the board height.
-
 - Reduce the size of the board and pieces.
+
+- Make the pieces display higher than the board height.
 
 - Mathematically put a piece in the center of a cell when the user taps that cell.
 
