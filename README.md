@@ -14,23 +14,22 @@ When two people play, one of them will go with the crosses, and the other one wi
 
 # Work to be done
 
-- Reduce the size of the board and pieces.
+- [x] Reduce the size of the board and pieces.
 
-- Make the pieces display higher than the board height.
+- [ ] Mathematically put a piece in the center of a cell when the user taps that cell.
+	- Make the pieces display higher than the board height.
 
-- Mathematically put a piece in the center of a cell when the user taps that cell.
+- [ ] Implement the tic tac toe logic: Whoever gets a line of their type of pieces wins.
 
-- Implement the tic tac toe logic: Whoever gets a line of their type of pieces wins.
+- [ ] Change the name of the deployed application (for now it is EasyLearn) and improve GUI.
 
-- Change the name of the deployed application (for now it is EasyLearn).
-
-- Develop tests for the application.
+- [ ] Develop tests for the application.
 
 # Testing suggestions
 
 These are some testing suggestions to take into account when testing the AR application. If necessary, additional bugs can be included to enrich the validation process.
 
-- When rotating the camera 90º, we are not be able to see the inserted 3D objects.
+- When rotating the camera 90?, we are not be able to see the inserted 3D objects.
 
 - A piece is placed it in the center of the selected cell.
 
