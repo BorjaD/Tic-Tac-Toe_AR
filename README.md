@@ -29,7 +29,7 @@ When two people play, one of them will go with the crosses, and the other one wi
 
 These are some testing suggestions to take into account when testing the AR application. If necessary, additional bugs can be included to enrich the validation process.
 
-- When rotating the camera 90?, we are not be able to see the inserted 3D objects.
+- When rotating the camera 90º, we are not be able to see the inserted 3D objects.
 
 - A piece is placed it in the center of the selected cell.
 
