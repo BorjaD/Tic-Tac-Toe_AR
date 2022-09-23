@@ -3,23 +3,46 @@
 buildscript {
     repositories {
         google()
-        jcenter()
-        
+        mavenCentral()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.5.2'
-        classpath 'com.google.ar.sceneform:plugin:1.15.0'
-        
+        classpath 'com.android.tools.build:gradle:7.1.1'
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
+
+        //DEBUG: Adding aplib dependency
+//        compile fileTree(dir: 'libs', include: '*.jar')
+//        implementation fileTree(dir: 'libs', include: '*.jar')
+//        compile 'com.android.support:support-v4:18.0.+'
+//        implementation 'com.android.support:support-v4:18.0.+'
+//        compile 'com.android.support:appcompat-v7:18.0.+'
+//        implementation 'com.android.support:appcompat-v7:18.0.+'
+
+
+//          compile 'com.github.iv4xr-project:aplib:1.4.1'
+//    implementation 'com.github.iv4xr-project:aplib:1.4.1'
+//          compile 'com.github.iv4xr-project.aplib:aplib:1.4.1'
+//    implementation 'com.github.iv4xr-project.aplib:aplib:1.4.1'
+//          compile 'aplib:1.4.1'
+//    implementation 'aplib:1.4.1'
+//          compile 'aplib:aplib:1.4.1'
+//    implementation 'aplib:aplib:1.4.1'
+//          compile 'de.iv4xr-project:aplib:1.4.1'
+//    implementation 'de.iv4xr-project:aplib:1.4.1'
+//          compile 'com.github.iv4xr-project.aplib:1.4.1'
+//    implementation 'com.github.iv4xr-project.aplib:1.4.1'
+
+        classpath 'com.google.ar.sceneform:plugin:1.15.0'
     }
 }
 
 allprojects {
     repositories {
         google()
-        jcenter()
-        
+        mavenCentral()
+        mavenLocal()
+        //DEBUG: Adding aplib dependency
+        maven {url "https://jitpack.io"}
     }
 }
 

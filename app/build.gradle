@@ -1,36 +1,110 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 29
-    buildToolsVersion "29.0.3"
+    //compileSdkVersion 31
+    //compileSdkVersion 30
+    compileSdkVersion 32
     defaultConfig {
-        applicationId "com.example.easylearn"
-        minSdkVersion 24
-        targetSdkVersion 29
+        applicationId "com.google.ar.core.examples.java.helloar"
+
+        // AR Optional apps must declare minSdkVersion >= 14.
+        // AR Required apps must declare minSdkVersion >= 24.
+        minSdkVersion 21
+        //targetSdkVersion 31
+        //targetSdkVersion 30
+        targetSdkVersion 32
         versionCode 1
-        versionName "1.0"
+        versionName '1.0'
+
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+    compileOptions {
+        /*sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8*/
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
     }
     buildTypes {
         release {
             minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
-    compileOptions{
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+    viewBinding{
+        enabled = true
+    }
+
+    //DEBUG
+    packagingOptions {
+        /*exclude 'META-INF/DEPENDENCIES'
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/license.txt'
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/NOTICE.txt'
+        exclude 'META-INF/notice.txt'
+        exclude 'META-INF/ASL2.0'
+        exclude("META-INF/*.kotlin_module")*/
+
+        resources.excludes.add("META-INF/*")
     }
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation 'androidx.appcompat:appcompat:1.1.0'
-    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+    // ARCore (Google Play Services for AR) library.
+    implementation 'com.google.ar:core:1.29.0'
+
+    // Obj - a simple Wavefront OBJ file loader
+    // https://github.com/javagl/Obj
+    implementation 'de.javagl:obj:0.2.1'
+
+    //Aplib dependency
+//    compile fileTree(dir: 'libs', include: '*.jar')
+    implementation fileTree(dir: 'libs', include: '*.jar')
+
+          implementation 'com.github.iv4xr-project:aplib:1.4.2'                 //OK: Prolog dependencies imported. Bug: Symbol var in class Face
+//    testImplementation 'com.github.iv4xr-project:aplib:1.4.1'
+//    androidTestImplementation 'com.github.iv4xr-project:aplib:1.4.1'
+//    compile 'com.github.iv4xr-project:aplib:1.4.1'
+//          implementation 'com.github.iv4xr-project.aplib:aplib:1.4.             //No prolog dependencies imported
+//    testImplementation 'com.github.iv4xr-project.aplib:aplib:1.4.1'
+//    androidTestImplementation 'com.github.iv4xr-project.aplib:aplib:1.4.1'
+//    compile 'com.github.iv4xr-project.aplib:aplib:1.4.1'
+//          implementation 'aplib:1.4.1                                           //No prolog dependencies imported
+//    testImplementation 'aplib:1.4.1'
+//    androidTestImplementation 'aplib:1.4.1'
+//    compile 'aplib:1.4.1'
+//          implementation 'aplib:aplib:1.4.1'                                    //No prolog dependencies imported
+//    testImplementation 'aplib:aplib:1.4.1'
+//    androidTestImplementation 'aplib:aplib:1.4.1'
+//    compile 'aplib:aplib:1.4.1'
+//          implementation 'de.iv4xr-project:aplib:1.4.1'                         //No prolog dependencies imported
+//    testImplementation 'de.iv4xr-project:aplib:1.4.1'
+//    androidTestImplementation 'de.iv4xr-project:aplib:1.4.1'
+//    compile 'de.iv4xr-project:aplib:1.4.1'
+
+    implementation 'androidx.appcompat:appcompat:1.4.1'
+    //implementation 'com.google.android.material:material:1.6.0'
+    implementation 'com.google.android.material:material:1.5.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.3'
+    implementation 'androidx.test.uiautomator:uiautomator:2.2.0'
+    testImplementation 'junit:junit:4.13.2'
+    //implementation 'org.robolectric:robolectric:4.8.1'
+    testImplementation "org.robolectric:robolectric:4.0.2"
+    //testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+    //androidTestImplementation 'androidx.test.espresso:espresso-core:3.0.1'
+    //androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
     implementation 'com.google.ar.sceneform.ux:sceneform-ux:1.15.0'
+
+    //androidTestImplementation 'androidx.test:runner:1.3.4'
+    androidTestImplementation 'androidx.test:runner:1.0.1'
+    //androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    //androidTestImplementation 'androidx.test:rules:1.3.4'
+    androidTestImplementation 'androidx.test:rules:1.0.1'
+    //androidTestImplementation 'com.android.support.test:rules:1.0.2'
+    androidTestImplementation 'androidx.test.espresso:espresso-intents:3.4.0'
 }
 apply plugin: 'com.google.ar.sceneform.plugin'
 
@@ -48,18 +122,3 @@ sceneform.asset('sampledata/o.obj',
         'default',
         'sampledata/o.sfa',
         'src/main/res/raw/o')
-
-sceneform.asset('sampledata/sealion_v1_l3.obj',
-        'default',
-        'sampledata/sealion_v1_l3.sfa',
-        'src/main/res/raw/sealion_v1_l3')
-
-sceneform.asset('sampledata/rp_sophia_animated_003_idling.FBX',
-        'default',
-        'sampledata/rp_sophia_animated_003_idling.sfa',
-        'src/main/res/raw/rp_sophia_animated_003_idling')
-
-sceneform.asset('sampledata/rp_nathan_animated_003_walking.fbx',
-        'default',
-        'sampledata/rp_nathan_animated_003_walking.sfa',
-        'src/main/res/raw/rp_nathan_animated_003_walking')
