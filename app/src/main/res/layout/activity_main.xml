@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -43,3 +44,101 @@
         </LinearLayout>
     </HorizontalScrollView>
 </RelativeLayout>
+-->
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <!--<io.github.sceneview.ar.ArSceneView
+        android:id="@+id/sceneView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />-->
+
+    <android.opengl.GLSurfaceView
+        android:id="@+id/surfaceview"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_gravity="top" />
+
+    <!--THROWS ERROR-->
+    <fragment
+        android:id="@+id/fragment"
+        android:name="com.google.ar.sceneform.ux.ArFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/x"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:padding="15dp"
+            android:src="@drawable/x" />
+
+        <ImageView
+            android:id="@+id/o"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:src="@drawable/o" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <ImageButton
+                android:id="@+id/settings_button"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="right"
+                android:layout_marginStart="0dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginBottom="0dp"
+                android:background="@android:color/transparent"
+                tools:ignore="SpeakableTextPresentCheck" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/record_button"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@id/fragment"
+        android:layout_alignBottom="@id/fragment"
+        android:layout_marginLeft="15dp"
+        android:layout_marginBottom="100dp"
+        android:onClick="onClickRecord"
+        android:text="Record"
+        android:textColor="#bd5353" />
+
+    <Button
+        android:id="@+id/playback_button"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@id/fragment"
+        android:layout_alignBottom="@id/fragment"
+        android:layout_marginRight="15dp"
+        android:layout_marginBottom="100dp"
+        android:hapticFeedbackEnabled="true"
+        android:onClick="onClickPlayback"
+        android:text="Playback"
+        android:textColor="#5fb553" />
+
+
+</RelativeLayout>
+
+    <!--android:src="@drawable/ic_settings"-->
